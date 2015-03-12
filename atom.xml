@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://staray.github.com/"/>
-  <updated>2015-03-12T06:40:13.383Z</updated>
+  <updated>2015-03-12T06:55:56.253Z</updated>
   <id>http://staray.github.com/</id>
   
   <author>
@@ -13,6 +13,19 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[列表]]></title>
+    <link href="http://staray.github.com/2015/03/12/%E5%88%97%E8%A1%A8/"/>
+    <id>http://staray.github.com/2015/03/12/列表/</id>
+    <published>2015-03-12T06:55:56.000Z</published>
+    <updated>2015-03-12T06:55:56.253Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android Guide]]></title>
@@ -52,8 +65,6 @@
     <![CDATA[<h1 id="Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用">Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用</h1><hr>
 <embed src="http://www.xiami.com/widget/0_]]>
     </summary>
-    
-      <category term="Android" scheme="http://staray.github.com/tags/Android/"/>
     
   </entry>
   
