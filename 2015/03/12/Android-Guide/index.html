@@ -3,17 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>许华林的Blog</title>
+  <title>Android Guide | 许华林的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天进步一点点">
-<meta property="og:type" content="website">
-<meta property="og:title" content="许华林的Blog">
-<meta property="og:url" content="http://staray.github.com/index.html">
+  <meta name="description" content="Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用
+  
+
+在许多android、ios应用中，我们经常看到在应用第一次启动，或者版本更新的时候，会有一个引导界面来介绍这个应用的特点和操作技巧之类的图文说明，像这样（以百度地图举例）：  
+我们也要做一个类似的引导界面，效果和这个类似，现在开始！
+首先来看一下最终我们实现的效果：
+首先，打开eclipse，建立一个空的项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Guide">
+<meta property="og:url" content="http://staray.github.com/2015/03/12/Android-Guide/index.html">
 <meta property="og:site_name" content="许华林的Blog">
-<meta property="og:description" content="每天进步一点点">
+<meta property="og:description" content="Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用
+  
+
+在许多android、ios应用中，我们经常看到在应用第一次启动，或者版本更新的时候，会有一个引导界面来介绍这个应用的特点和操作技巧之类的图文说明，像这样（以百度地图举例）：  
+我们也要做一个类似的引导界面，效果和这个类似，现在开始！
+首先来看一下最终我们实现的效果：
+首先，打开eclipse，建立一个空的项">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612112712343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612112818187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612112854062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612112916093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://7xawq4.com1.z0.glb.clouddn.com/guide.gif">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612114035812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612114050375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612114016609?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140612153521546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="许华林的Blog">
-<meta name="twitter:description" content="每天进步一点点">
+<meta name="twitter:title" content="Android Guide">
+<meta name="twitter:description" content="Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用
+  
+
+在许多android、ios应用中，我们经常看到在应用第一次启动，或者版本更新的时候，会有一个引导界面来介绍这个应用的特点和操作技巧之类的图文说明，像这样（以百度地图举例）：  
+我们也要做一个类似的引导界面，效果和这个类似，现在开始！
+首先来看一下最终我们实现的效果：
+首先，打开eclipse，建立一个空的项">
   
     <link rel="alternative" href="/atom.xml" title="许华林的Blog" type="application/atom+xml">
   
@@ -60,9 +87,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Android-Guide" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Android-Guide" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/12/Android-Guide/" class="article-date">
   <time datetime="2015-03-12T05:35:09.000Z" itemprop="datePublished">2015-03-12</time>
@@ -74,8 +99,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/12/Android-Guide/">Android Guide</a>
+    <h1 class="article-title" itemprop="name">
+      Android Guide
     </h1>
   
 
@@ -121,97 +146,51 @@
     </footer>
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/12/Music-and-Video-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Music and Video test</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-  
-    <article id="post-Music-and-Video-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/12/Music-and-Video-test/" class="article-date">
-  <time datetime="2015-03-12T04:11:42.000Z" itemprop="datePublished">2015-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/12/Music-and-Video-test/">Music and Video test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <embed src="http://www.xiami.com/widget/0_1770201852/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent">  
-
-
-<iframe height="498" width="510" src="http://player.youku.com/embed/XODY1NzI0MzIw" frameborder="0" allowfullscreen></iframe>
-
-<p><img src="http://7xawq4.com1.z0.glb.clouddn.com/guide.gif" alt=""></p>
-
-      
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Android-Guide" data-title="Android Guide" data-url="http://staray.github.com/2015/03/12/Android-Guide/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'staray'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+    <div class="ds-share" data-thread-key="post-Android-Guide" data-title="Android Guide" data-url="http://staray.github.com/2015/03/12/Android-Guide/">
+    <div class="ds-share-aside-left">
+      <div class="ds-share-aside-inner">
+      </div>
+      <div class="ds-share-aside-toggle">分享到</div>
     </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/10/hello-world/" class="article-date">
-  <time datetime="2015-03-10T08:47:57.739Z" itemprop="datePublished">2015-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
     </div>
-    <footer class="article-footer">
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-</section>
+    
+    <br /> 
+    <br /> 
+  <h1 style="text-align:center">本站共到访<strong id="counterValue"></strong>次</h1>
+  </section>
+  </section>
         
       </div>
     </div>
@@ -220,11 +199,13 @@
 <script>
   var duoshuo_shortname = 'staray';
   
+  var disqus_url = 'http://staray.github.com/2015/03/12/Android-Guide/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + duoshuo_shortname + '.duoshuo.com/count.js';
+    dsq.src = '//' + duoshuo_shortname + '.duoshuo.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

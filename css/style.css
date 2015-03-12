@@ -125,11 +125,11 @@ body,
 body {
   background: color-background;
   background-repeat: repeat;
-  font: 1em "Apple LiGothic Medium", "Microsoft JhengHei";
+  font: 16px "Apple LiGothic Medium", "Microsoft JhengHei";
   -webkit-text-size-adjust: 100%;
 }
 .outer {
-  max-width: 720px;
+  max-width: 920px;
   margin: 0px auto;
   padding: 0 20px;
 }
@@ -144,8 +144,8 @@ body {
 .inner {
   display: inline;
   float: left;
-  width: 97.1428571428571%;
-  margin: 0 1.4285714285714%;
+  width: 97.7777777777778%;
+  margin: 0 1.1111111111111%;
 }
 .left,
 .alignleft {
@@ -301,7 +301,7 @@ body {
   position: absolute;
   top: 10%;
   left: 0px;
-  margin-top: -1.25em;
+  margin-top: -20px;
 }
 #header-inner {
   text-align: center;
@@ -324,16 +324,16 @@ body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 #logo {
-  font-size: 2.5em;
+  font-size: 40px;
   letter-spacing: 2px;
 }
 #subtitle {
-  font-size: 1em;
-  line-height: 1em;
+  font-size: 16px;
+  line-height: 16px;
   letter-spacing: 1px;
 }
 #subtitle-wrap {
-  margin-top: 1em;
+  margin-top: 16px;
 }
 #main-nav {
   text-align: center;
@@ -372,8 +372,8 @@ body {
   font-family: FontAwesome;
   text-align: center;
   font-size: 20px;
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
   padding: 20px 15px;
   cursor: pointer;
 }
@@ -398,7 +398,7 @@ body {
   }
 }
 .article {
-  margin: 3em 0;
+  margin: 50px 0;
 }
 .article-inner {
   overflow: hidden;
@@ -449,7 +449,7 @@ a.article-title:hover {
 }
 .article-entry {
   color: #555;
-  padding: 0 1em;
+  padding: 0 20px;
 }
 .article-entry:before,
 .article-entry:after {
@@ -538,7 +538,7 @@ a.article-title:hover {
   margin-bottom: 0;
 }
 .article-entry blockquote footer {
-  font-size: 1em;
+  font-size: 16px;
   margin: 1.6em 0;
   font-family: "Apple LiGothic Medium", "Microsoft JhengHei";
 }
@@ -598,7 +598,7 @@ a.article-title:hover {
   line-height: 1.6em;
   border-top: 1px solid #ddd;
   padding-top: 1.6em;
-  margin: 0 1em 1em;
+  margin: 0 20px 20px;
 }
 .article-footer:before,
 .article-footer:after {
@@ -643,7 +643,7 @@ a.article-title:hover {
 }
 @media screen and (min-width: 768px) {
   #article-nav {
-    margin: 3em 0;
+    margin: 50px 0;
   }
   #article-nav:before {
     width: 8px;
@@ -668,7 +668,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 3em;
+  margin-top: 50px;
   text-align: center;
   display: block;
 }
@@ -714,17 +714,17 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
-  padding: 1em;
+  padding: 20px;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  margin: 3em 0;
+  margin: 50px 0;
 }
 #comments a {
   color: #258fb8;
 }
 .archives-wrap {
-  margin: 3em 0;
+  margin: 50px 0;
 }
 .archives:before,
 .archives:after {
@@ -791,7 +791,7 @@ a.article-title:hover {
   display: block;
 }
 #page-nav {
-  margin: 3em auto;
+  margin: 50px auto;
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
@@ -849,7 +849,7 @@ a.article-title:hover {
 .article-entry .highlight {
   background: #2d2d2d;
   margin: 0 1em 1em 1em;
-  padding: 15px 1em;
+  padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
@@ -857,7 +857,7 @@ a.article-title:hover {
   border-radius: 3px;
   overflow: auto;
   color: #ccc;
-  line-height: 1.6em;
+  line-height: 25.6px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -917,15 +917,15 @@ a.article-title:hover {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 1.6em;
+  height: 25.6px;
 }
 .article-entry .gist {
-  margin: 0 -1em;
+  margin: 0 -20px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
   background: #2d2d2d;
-  padding: 15px 1em 15px 0;
+  padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
   border: none;
@@ -956,7 +956,7 @@ a.article-title:hover {
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
-  margin-left: 1em;
+  margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
   color: #258fb8;
