@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://staray.github.com/"/>
-  <updated>2015-03-12T06:04:16.099Z</updated>
+  <updated>2015-03-12T06:40:13.383Z</updated>
   <id>http://staray.github.com/</id>
   
   <author>
@@ -19,11 +19,11 @@
     <link href="http://staray.github.com/2015/03/12/Android-Guide/"/>
     <id>http://staray.github.com/2015/03/12/Android-Guide/</id>
     <published>2015-03-12T05:35:09.000Z</published>
-    <updated>2015-03-12T06:04:16.099Z</updated>
+    <updated>2015-03-12T06:40:13.383Z</updated>
     <content type="html"><![CDATA[<h1 id="Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用">Android应用开发（2）：制作一个漂亮的引导界面—viewpager的使用</h1><hr>
 <embed src="http://www.xiami.com/widget/0_1770201852/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent">  
 
-<p>在许多android、ios应用中，我们经常看到在应用第一次启动，或者版本更新的时候，会有一个引导界面来介绍这个应用的特点和操作技巧之类的图文说明，像这样（以百度地图举例）：<br><img src="http://img.blog.csdn.net/20140612112712343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""> <img src="http://img.blog.csdn.net/20140612112818187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br><img src="http://img.blog.csdn.net/20140612112854062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""> <img src="http://img.blog.csdn.net/20140612112916093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVobDEwMjI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>在许多android、ios应用中，我们经常看到在应用第一次启动，或者版本更新的时候，会有一个引导界面来介绍这个应用的特点和操作技巧之类的图文说明，像这样（以百度地图举例）：<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/未标题-1.png" alt=""></p>
 <p>我们也要做一个类似的引导界面，效果和这个类似，现在开始！</p>
 <p>首先来看一下最终我们实现的效果：<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/guide.gif" alt=""></p>
 <p>首先，打开eclipse，建立一个空的项目。<br>我们需要的资源：</p>
