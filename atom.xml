@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://staray.github.com/"/>
-  <updated>2015-03-12T06:55:56.253Z</updated>
+  <updated>2015-03-27T06:46:56.095Z</updated>
   <id>http://staray.github.com/</id>
   
   <author>
@@ -13,6 +13,23 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[一款逆向扫雷的游戏]]></title>
+    <link href="http://staray.github.com/2015/03/27/%E4%B8%80%E6%AC%BE%E9%80%86%E5%90%91%E6%89%AB%E9%9B%B7%E7%9A%84%E6%B8%B8%E6%88%8F/"/>
+    <id>http://staray.github.com/2015/03/27/一款逆向扫雷的游戏/</id>
+    <published>2015-03-27T06:44:35.000Z</published>
+    <updated>2015-03-27T06:46:56.095Z</updated>
+    <content type="html"><![CDATA[<p>内容可以看作是逆向的扫雷游戏，扫雷是把雷找出来，而这个游戏是把“雷”安上。</p>
+<iframe style="background-color:white" scrolling="no" src="http://www.squaro.fr/app/widget.htm" border="0" frameborder="0" width="320" height="480"></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>内容可以看作是逆向的扫雷游戏，扫雷是把雷找出来，而这个游戏是把“雷”安上。</p>
+<iframe style="background-color:white" scrolling="no" src="http://www.squaro.fr/app/widget.htm"]]>
+    </summary>
+    
+      <category term="网页游戏" scheme="http://staray.github.com/tags/%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[列表]]></title>
