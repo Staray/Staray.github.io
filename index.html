@@ -74,7 +74,7 @@
     <article id="post-编写开源库并发布到JitPack.io" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/29/编写开源库并发布到JitPack.io/" class="article-date">
-  <time datetime="2016-11-29T01:52:43.861Z" itemprop="datePublished">2016-11-29</time>
+  <time datetime="2016-11-29T02:06:55.476Z" itemprop="datePublished">2016-11-29</time>
 </a>
     
   </div>
@@ -82,9 +82,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-            <h1 id="编写开源库并发布到JitPack-io">编写开源库并发布到JitPack.io</h1><p>标签（空格分隔）： Android library jitpack</p>
+        <h1 id="编写开源库并发布到JitPack-io">编写开源库并发布到JitPack.io</h1><p>标签（空格分隔）： Android library jitpack</p>
 <hr>
-<p>TAG:<a href="https://github.com/Staray/VerticalScrollTextView" target="_blank" rel="external">文章中用到的库项目地址</a></p>
+<p>TAG:<a href="https://github.com/Staray/VerticalScrollTextView">文章中用到的库项目地址</a></p>
 <p>在经历了Jcenter的各种坑后，然后最后一步：bintrayUpload到97%死活传不上去，前前后后折腾了3、4天，每天抽一小会尝试更改，结果还是没成功。</p>
 <p>万幸找到了一个更方便的发布途径：JitPack.io。</p>
 <p>现在记录一下我建立库并发布到JitPack.io的过程，网上教程很多，但是毕竟自己操作记录一遍还是有很大好处的。</p>
@@ -98,71 +98,11 @@
 <li>Git软件，并且配置了SSH，能够往Github上传代码</li>
 </ol>
 <hr>
-<h2 id="建立工程">建立工程</h2><p>第一步创建工程，一路next，最后Finish。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/1.PNG" alt=""><br><img src="http://7xawq4.com1.z0.glb.clouddn.com/2.PNG" alt=""><br><img src="http://7xawq4.com1.z0.glb.clouddn.com/3.png" alt=""></p>
-<p>接着建立Module，这个就是一会我们要发布的库。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/4.png" alt=""></p>
-<p>选择Android Library，然后Next。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/5.png" alt=""></p>
-<p>命名库名为Library，然后Finish。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/6.png" alt=""></p>
-<p>至此，我们的工程搭建完成。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/7.png" alt=""></p>
-<h2 id="编写库文件">编写库文件</h2><p>这个是我发布的一个库， <a href="https://github.com/Staray/VerticalScrollTextView" target="_blank" rel="external">这是项目地址</a>。<br>功能类似淘宝的垂直滚动广告条，可以设置文字颜色，大小，点击事件等，效果图如下：<br><img src="https://raw.githubusercontent.com/Staray/VerticalScrollTextView/master/Images/demo.gif" alt=""></p>
-<h2 id="测试库文件">测试库文件</h2><p>在app工程名称上右键，在弹出菜单中选择”Open Module Settings”<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/8.png" alt=""></p>
-<p>选择”Dependencies”选项卡，点击右侧“加号”， 弹出菜单中选择”Module Dependency”<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/9.png" alt=""></p>
-<p>选择:library库，点击OK.<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/10.png" alt=""></p>
-<p>然后编写你的app程序，测试库文件功能是否正常，如果一切正常，那么开始进行下一步。</p>
-<h2 id="上传Github">上传Github</h2><p>进入Github首页，点击右上角加号按钮，弹出的菜单中选择”New repository”。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/11.png" alt=""></p>
-<p>填写项目名称，这里有个注意的地方，在最下方，初始化READ ME文件那里，最好不要勾选，这个文件你可以在本地创建好，然后上传上去，否则，在后面上传文件中，你需要多做一步”git pull”。然后点击”Create repository”按钮。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/12.png" alt=""></p>
-<p>Github给出了上传代码的教程，我们需要做的是红框里的事情”push an existing repository from the command line”。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/13.png" alt=""></p>
-<p>打开Git Bash，进入你的工程目录， 然后执行</p>
-<pre><code><span class="title">git</span> init
-</code></pre><p><img src="http://7xawq4.com1.z0.glb.clouddn.com/14.png" alt=""></p>
-<p>然后commit一次。</p>
-<pre><code>git <span class="built_in">add</span> . <span class="comment">--all</span>
-
-git commit -m <span class="string">"init"</span>
-</code></pre><p><img src="http://7xawq4.com1.z0.glb.clouddn.com/15.png" alt=""></p>
-<p>接着按照github网站提示，提交代码。</p>
-<pre><code>git remote add origin git@github<span class="class">.com</span>:Staray/VerticalScrollTextView<span class="class">.git</span>
-git push -u origin master
-</code></pre><p><img src="http://7xawq4.com1.z0.glb.clouddn.com/16.png" alt=""></p>
-<p>然后，我们给这次提交的库打一个tag，并push到github上。</p>
-<pre><code>git <span class="keyword">tag</span> v1.<span class="number">0.0</span>
-git push origin --<span class="keyword">tags</span>
-</code></pre><p><img src="http://7xawq4.com1.z0.glb.clouddn.com/17.png" alt=""></p>
-<p>打开Github上你的工程页面，代码已经传上来了，复制你的项目地址。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/18.png" alt=""></p>
-<h2 id="使用JitPack发布你的库">使用JitPack发布你的库</h2><p>打开jitpack.io页面，并将你的项目地址复制到页面的输入框中，然后点击”Look up”按钮，等待一会。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/19.png" alt=""></p>
-<p>页面就出现了刚刚我们上传好的代码，点击”Get it”。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/20.png" alt=""></p>
-<p>页面自动滚动到下面使用方法页面，恭喜，你的第一个库发布成功了！<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/21.png" alt=""></p>
-<p>现在我们赶紧测试一下我们的库能否使用，新建一个工程，并按照JitPack提示，分别在root build.gradle添加如下代码：</p>
-<pre><code>allprojects {
-    repositories {
-        <span class="keyword">...</span>
-        maven { url <span class="string">'https://jitpack.io'</span> }
-    }
-}
-</code></pre><p>在你的app的build gradle添加：</p>
-<pre><code><span class="keyword">dependencies</span> {
-    <span class="keyword">compile</span> <span class="string">'com.github.Staray:VerticalScrollTextView:v1.0.0'</span>
-}
-</code></pre><p>然后同步工程。</p>
-<p>我的库是一个自定义控件，所以，在xml页面，我输入了自定义控件名称，Android studio 给出了提示，证明库导入成功。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/22.png" alt=""></p>
-<h2 id="使用JitPack插件发布库">使用JitPack插件发布库</h2><p>网上很多教程都写了JitPack官网上的插件方式发布，可是最后都去网站上点击Look up按钮的方式发布库文件，其实如果插件安装完成，直接使用gradle就可以发布了。</p>
-<p>按照官网提示，在root build.gradle文件中添加：</p>
-<pre><code><span class="keyword">buildscript</span> {
-    <span class="keyword">dependencies</span> {
-        <span class="keyword">classpath</span> <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.5'</span>
-        }
-    }
-}
-</code></pre><p>在library Module 的build.gradle文件添加：</p>
-<pre><code>apply plugin: <span class="string">'com.github.dcendents.android-maven'</span>
-<span class="keyword">group</span>=<span class="string">'com.github.YourUsername'</span>
-</code></pre><p>替换”YourUsername”为你的Github用户名。</p>
-<p>完成之后，同步工程，接着Commit并push到github上，并且给当前工程添加一个新的tag，push tag到github上。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/23.png" alt=""></p>
-<p>然后在Android Studio的命令行中执行如下命令：</p>
-<pre><code>gradlew <span class="keyword">install</span>
-</code></pre><p><img src="http://7xawq4.com1.z0.glb.clouddn.com/24.png" alt=""></p>
-<p>执行成功之后，就表示已经成功的发布到jitpack.io上了。<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/25.png" alt=""></p>
-<p>测试一下，成功发布！<br><img src="http://7xawq4.com1.z0.glb.clouddn.com/26.png" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/11/29/编写开源库并发布到JitPack.io/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
