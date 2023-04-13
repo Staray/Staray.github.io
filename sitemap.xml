@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://staray.github.io/repository/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/tags/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/links/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/books/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/categories/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/about/index.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/404.html</loc>
+    
+    <lastmod>2023-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://staray.github.io/2023/04/12/hello-world/</loc>
     
     <lastmod>2023-04-12</lastmod>

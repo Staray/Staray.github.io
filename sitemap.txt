@@ -1,2 +1,9 @@
+https://staray.github.io/repository/index.html
+https://staray.github.io/tags/index.html
+https://staray.github.io/links/index.html
+https://staray.github.io/books/index.html
+https://staray.github.io/categories/index.html
+https://staray.github.io/about/index.html
+https://staray.github.io/404.html
 https://staray.github.io/2023/04/12/hello-world/
 https://staray.github.io/
