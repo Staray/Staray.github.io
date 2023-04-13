@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Staray</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://staray.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://staray.github.io/"/>
   <updated>2023-04-12T08:49:38.234Z</updated>
-  <id>http://example.com/</id>
-  
-  <author>
-    <name>John Doe</name>
-    
-  </author>
+  <id>https://staray.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2023/04/12/hello-world/"/>
-    <id>http://example.com/2023/04/12/hello-world/</id>
+    <link href="https://staray.github.io/2023/04/12/hello-world/"/>
+    <id>https://staray.github.io/2023/04/12/hello-world/</id>
     <published>2023-04-12T08:52:29.608Z</published>
     <updated>2023-04-12T08:49:38.234Z</updated>
     
