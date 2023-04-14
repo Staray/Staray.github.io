@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://staray.github.io/about/index.html</loc>
+    <loc>https://staray.github.io/books/index.html</loc>
     
     <lastmod>2023-04-14</lastmod>
     
@@ -11,9 +11,18 @@
   </url>
   
   <url>
-    <loc>https://staray.github.io/repository/index.html</loc>
+    <loc>https://staray.github.io/links/index.html</loc>
     
-    <lastmod>2023-04-13</lastmod>
+    <lastmod>2023-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://staray.github.io/about/index.html</loc>
+    
+    <lastmod>2023-04-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -29,16 +38,7 @@
   </url>
   
   <url>
-    <loc>https://staray.github.io/links/index.html</loc>
-    
-    <lastmod>2023-04-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://staray.github.io/books/index.html</loc>
+    <loc>https://staray.github.io/repository/index.html</loc>
     
     <lastmod>2023-04-13</lastmod>
     
