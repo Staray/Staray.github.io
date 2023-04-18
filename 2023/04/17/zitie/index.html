@@ -26,7 +26,7 @@
 <meta property="og:description" content="试试字帖：      .inline-demo {         border: 1px solid #CCC;         width: 300px;         height: 300px;         margin: 5px;     }     .container {         text-align: center;     }     .h-center-item">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-17T03:11:36.000Z">
-<meta property="article:modified_time" content="2023-04-18T01:39:15.945Z">
+<meta property="article:modified_time" content="2023-04-18T01:51:04.115Z">
 <meta property="article:tag" content="字帖">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -354,7 +354,7 @@
 </style>
 
 <script type="text/javascript" src="hanzi-writer.js"></script>
-<!-- <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <div class="container">
     <div class="h-center-item">
         <!--米字格-->
@@ -372,22 +372,24 @@
 </div>
 
 <script>
+    var text = document.getElementById("input_edit").value;
+    var writer = HanziWriter.create('grid-background-target', text, {
+        width: 300,
+        height: 300,
+        padding: 5,
+        showOutline: true,
+        strokeAnimationSpeed: 0.8, // 5x normal speed
+        delayBetweenStrokes: 1000, // milliseconds
+        radicalColor: '#337ab7', // blue
+        charDataLoader: function (char, onComplete) {
+            $.getJSON("./data/" + char + ".json", function (charData) {
+                onComplete(charData);
+            })
+        }
+    });
     document.getElementById('animate-button').addEventListener('click', function () {
         var text = document.getElementById("input_edit").value;
-        var writer = HanziWriter.create('grid-background-target', text, {
-            width: 300,
-            height: 300,
-            padding: 5,
-            showOutline: true,
-            strokeAnimationSpeed: 0.8, // 5x normal speed
-            delayBetweenStrokes: 1000, // milliseconds
-            radicalColor: '#337ab7', // blue
-            charDataLoader: function (char, onComplete) {
-                $.getJSON("./data/" + char + ".json", function (charData) {
-                    onComplete(charData);
-                })
-            }
-        });
+        writer.setCharacter(text);
         writer.animateCharacter();
     });
 </script>
