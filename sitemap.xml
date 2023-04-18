@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://staray.github.io/2023/04/17/zitie/</loc>
+    
+    <lastmod>2023-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://staray.github.io/books/index.html</loc>
     
     <lastmod>2023-04-14</lastmod>
@@ -76,11 +85,18 @@
 
   <url>
     <loc>https://staray.github.io/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://staray.github.io/tags/%E5%AD%97%E5%B8%96/</loc>
+    <lastmod>2023-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
