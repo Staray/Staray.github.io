@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Github API | STARAY个人小站</title>
+  <meta name="description" content="前言在使用Github作为远端仓库的时候，Github给我们提供了一套API接口，可以做非常多有趣的事，今天尝试使用其中的API来操作仓库文件，达到一个免费“数据库”的作用。 具体描述：  创建Github仓库，并传入一个文件作为“数据库”。 创建Token，用于访问和操作“数据库” 在安卓端，使用该Token，对“数据库”进行读写操作。  开始 在开始之前，请先确保已经申请Github账号和配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github API">
+<meta property="og:url" content="https://staray.github.io/2023/04/19/Github-API/index.html">
+<meta property="og:site_name" content="听雨煎茶">
+<meta property="og:description" content="前言在使用Github作为远端仓库的时候，Github给我们提供了一套API接口，可以做非常多有趣的事，今天尝试使用其中的API来操作仓库文件，达到一个免费“数据库”的作用。 具体描述：  创建Github仓库，并传入一个文件作为“数据库”。 创建Token，用于访问和操作“数据库” 在安卓端，使用该Token，对“数据库”进行读写操作。  开始 在开始之前，请先确保已经申请Github账号和配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.staray.top/Github-API/QQ%E6%88%AA%E5%9B%BE20230419093847.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/api-data-json.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/raw-data-json.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/setting-btn.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/token-page.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/gen-token.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/token-content.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/put-result.png">
+<meta property="og:image" content="http://pic.staray.top/Github-API/put-data-result.png">
+<meta property="article:published_time" content="2023-04-19T01:25:31.000Z">
+<meta property="article:modified_time" content="2023-04-19T06:45:18.161Z">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.staray.top/Github-API/QQ%E6%88%AA%E5%9B%BE20230419093847.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://staray.github.io/2023/04/19/Github-API/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="听雨煎茶" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/staray" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar1.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">STARAY</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> </small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Staray" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%B8%96/" rel="tag">字帖</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/API/" style="font-size: 13px;">API</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Github/" style="font-size: 13px;">Github</a> <a href="/tags/%E5%AD%97%E5%B8%96/" style="font-size: 13px;">字帖</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/04/19/Github-API/" class="title">Github API</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-19T01:25:31.000Z" itemprop="datePublished">2023-04-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/04/17/zitie/" class="title">字帖</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-17T03:11:36.000Z" itemprop="datePublished">2023-04-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/04/12/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-12T08:52:29.608Z" itemprop="datePublished">2023-04-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Github-API" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Github API
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/04/19/Github-API/" class="article-date">
+	  <time datetime="2023-04-19T01:25:31.000Z" itemprop="datePublished">2023-04-19</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/API/" rel="tag">API</a>, <a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>, <a class="article-tag-link-link" href="/tags/Github/" rel="tag">Github</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2023/04/19/Github-API/" class="leancloud_visitors"  data-flag-title="Github API">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/04/19/Github-API/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用Github作为远端仓库的时候，Github给我们提供了一套API接口，可以做非常多有趣的事，今天尝试使用其中的API来操作仓库文件，达到一个免费“数据库”的作用。</p>
+<p>具体描述：</p>
+<ol>
+<li>创建Github仓库，并传入一个文件作为“数据库”。</li>
+<li>创建Token，用于访问和操作“数据库”</li>
+<li>在安卓端，使用该Token，对“数据库”进行读写操作。</li>
+</ol>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><blockquote>
+<p>在开始之前，请先确保已经申请Github账号和配置好本地Git环境，并具备基本的Git操作知识。如果还未接触过Git请先尝试学习一下简单教程。</p>
+</blockquote>
+<h2 id="一、-创建仓库"><a href="#一、-创建仓库" class="headerlink" title="一、 创建仓库"></a>一、 创建仓库</h2><p>在Github页面创建一个公开仓库，起个名字比如：<code>APITest</code>:</p>
+<p><img src="http://pic.staray.top/Github-API/QQ%E6%88%AA%E5%9B%BE20230419093847.png" alt="image"></p>
+<p>本地创建一个新文件夹，创建两个文件<code>data.json</code>和<code>README.md</code>。<br>其中<code>data.json</code>就作为“数据库”文件使用，编辑此文件随便写点什么：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;key1&quot;: &quot;value1&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，在本地建立仓库，并push到Github远端仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add . --all</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git remote add origin git@github.com:Staray/APITest.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>至此仓库准备完毕</p>
+<h2 id="二、-验证接口"><a href="#二、-验证接口" class="headerlink" title="二、 验证接口"></a>二、 验证接口</h2><p>Github给我们提供了访问仓库文件的接口，测试下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.github.com/repos/Staray/APITest/contents/data.json</span><br></pre></td></tr></table></figure>
+<p>返回结果：</p>
+<p><img src="http://pic.staray.top/Github-API/api-data-json.png" alt="获取文件"></p>
+<p>分析下这个接口：<br>前面的<code>https://api.github.com/repos/</code>是固定的，接着<code>Staray</code>是我的Github账户名，<code>APITest</code>是刚刚创建的仓库名称，<code>contents</code>是固定格式，<code>data.json</code>是刚刚创建的文件名称，所以通用的格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.github.com/repos/[用户名]/[仓库名]/contents/[文件名]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意，这个地址一定要注意大小写！</p>
+</blockquote>
+<p>这个json结构数据，包含了这个文件的一些关键性信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;data.json&quot;,</span><br><span class="line">  &quot;path&quot;: &quot;data.json&quot;,</span><br><span class="line">  &quot;sha&quot;: &quot;1cdefd0d8236a42053cbc83945180258d9cdaded&quot;,</span><br><span class="line">  &quot;size&quot;: 22,</span><br><span class="line">  &quot;url&quot;: &quot;https://api.github.com/repos/Staray/APITest/contents/data.json?ref=master&quot;,</span><br><span class="line">  &quot;html_url&quot;: &quot;https://github.com/Staray/APITest/blob/master/data.json&quot;,</span><br><span class="line">  &quot;git_url&quot;: &quot;https://api.github.com/repos/Staray/APITest/git/blobs/1cdefd0d8236a42053cbc83945180258d9cdaded&quot;,</span><br><span class="line">  &quot;download_url&quot;: &quot;https://raw.githubusercontent.com/Staray/APITest/master/data.json&quot;,</span><br><span class="line">  &quot;type&quot;: &quot;file&quot;,</span><br><span class="line">  &quot;content&quot;: &quot;ewogICJrZXkxIjogInZhbHVlMSIKfQ==\n&quot;,</span><br><span class="line">  &quot;encoding&quot;: &quot;base64&quot;,</span><br><span class="line">  &quot;_links&quot;: &#123;</span><br><span class="line">    &quot;self&quot;: &quot;https://api.github.com/repos/Staray/APITest/contents/data.json?ref=master&quot;,</span><br><span class="line">    &quot;git&quot;: &quot;https://api.github.com/repos/Staray/APITest/git/blobs/1cdefd0d8236a42053cbc83945180258d9cdaded&quot;,</span><br><span class="line">    &quot;html&quot;: &quot;https://github.com/Staray/APITest/blob/master/data.json&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的就是这个key：<code>sha</code>，每个仓库文件，都有对应的哈希值，如果修改该文件，哈希值就会变化，这个值是后面我们更新文件的唯一标识。<br>第二个需要注意的就是<code>content</code>，这个值记录的是文件内容的<code>Base64</code>编码结果，你可以直接通过<code>Base64解码</code>来获取到文件的内容。<br>第三个<code>download_url</code>，尝试访问这个地址，你就会直接拿到文件内容，如下所示：<br><img src="http://pic.staray.top/Github-API/raw-data-json.png" alt="raw-data-json"></p>
+<p>其他更多接口使用查看：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a6779929fad2">https://www.jianshu.com/p/a6779929fad2</a></p>
+<h2 id="三、-TOKEN申请"><a href="#三、-TOKEN申请" class="headerlink" title="三、 TOKEN申请"></a>三、 TOKEN申请</h2><p>上面的文档中给出了多种认证方式：</p>
+<blockquote>
+<p>认证方法一：Basic authentication<br>认证方法二：OAuth2 token<br>认证方法三：OAuth2 key/secret</p>
+</blockquote>
+<p>根据我们要实现的功能，最合适的是TOKEN验证。</p>
+<p>在Github页面，打开Setting页面：</p>
+<p><img src="http://pic.staray.top/Github-API/setting-btn.png" alt="setting"></p>
+<p>找到<code> Developer settings</code>选项卡点击打开，进入<code>Token页面</code></p>
+<p><img src="http://pic.staray.top/Github-API/token-page.png" alt="Token Page"></p>
+<p>点击<code>Generate new token</code>，在下拉框中选择<code>Generate new token(classic)</code>，创建一个新的Token。</p>
+<p>在创建页面，输入Note，设置期限，可以设置无过期，然后根据权限勾选token能操作的接口，这里我们需要操作仓库，至少要把repo勾选上：<br><img src="http://pic.staray.top/Github-API/gen-token.png" alt="Gen token"></p>
+<p>然后，点击下方的<code>Generate token</code>按钮。</p>
+<p>就能看到生成的Token页面，注意，这个页面只有在这时显示一次，以后就再也看不到这个Token明文了，所以需要这时保存下来，然后一直使用，假如没有保存，重新执行上面的生成token步骤进行替换即可。</p>
+<p><img src="http://pic.staray.top/Github-API/token-content.png" alt="Token Content"></p>
+<h2 id="四、-修改文件测试"><a href="#四、-修改文件测试" class="headerlink" title="四、 修改文件测试"></a>四、 修改文件测试</h2><p>下面介绍在安卓项目中修改仓库文件的实际测试，可以使用任何其他网络访问方式进行替换，比如在windows上使用Curl工具，PostMan工具等，原理都是一样。</p>
+<p>比如使用Ok-go库进行网络访问，设置Header：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HttpHeaders headers = new HttpHeaders();</span><br><span class="line">headers.put(&quot;Authorization&quot;, &quot;token ghp_xxxxxxxxxxxxxxxxxxxxxx&quot;);</span><br><span class="line">OkGo.getInstance().init(this)</span><br><span class="line">.addCommonHeaders(headers);</span><br></pre></td></tr></table></figure>
+
+<p>代码里的token后面的内容使用申请的Token字符串进行替换。</p>
+<p>然后，重点来了，修改文件内容需要以下操作，直接上代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import android.util.Base64;</span><br><span class="line"></span><br><span class="line">String json = &quot;&#123;\&quot;key1\&quot;: \&quot;value2\&quot;&#125;&quot;;</span><br><span class="line">String base64Data = Base64.encodeToString(json.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 上传数据格式：</span><br><span class="line">* &#123;</span><br><span class="line">*   &quot;message&quot;: &quot;test&quot;,</span><br><span class="line">*   &quot;content&quot;:</span><br><span class="line">*   &quot;Y3JlYXRlIxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;,</span><br><span class="line">*   &quot;sha&quot;: &quot;5xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span><br><span class="line">* &#125;</span><br><span class="line">*/</span><br><span class="line">JSONObject json = new JSONObject();</span><br><span class="line">json.put(&quot;message&quot;, &quot;test&quot;);</span><br><span class="line">json.put(&quot;content&quot;, base64Data);</span><br><span class="line">// shaStr，就是上面提到的文件哈希值。</span><br><span class="line">json.put(&quot;sha&quot;, shaStr);</span><br><span class="line"></span><br><span class="line">// 这个地址就是上面获取文件信息的地址，使用PUT方式进行文件更改</span><br><span class="line">OkGo.&lt;String&gt;put(&quot;https://api.github.com/repos/Staray/APITest/contents/data.json&quot;)</span><br><span class="line">    .upJson(json)</span><br><span class="line">    .execute(new StringCallback() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onSuccess(Response&lt;String&gt; response) &#123;</span><br><span class="line">            Log.e(&quot;TAG&quot;, &quot;success:&quot; + response.body());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以实际看到文件内容就被更改了:<br><img src="http://pic.staray.top/Github-API/put-result.png" alt="put-result"></p>
+<p>再次访问Github API接口：</p>
+<p><img src="http://pic.staray.top/Github-API/put-data-result.png" alt="put-data-result"></p>
+<p>可以看到文件内容更改成功。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>有了这个接口，我们就可以实现一些简单的数据存储，这里使用的明文，可以进行加密处理，这样我们就可以在没有个人服务器的情况下，使用远端数据存储和同步数据了。</p>
+<hr>
+<div height="200px"></div>
+<center><font color="#32CD32">天街小雨润如酥，草色遥看近却无</font></center>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://staray.github.io/2023/04/19/Github-API/" title="Github API" target="_blank" rel="external">https://staray.github.io/2023/04/19/Github-API/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/staray" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar1.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/staray" target="_blank"><span class="text-dark">STARAY</span><small class="ml-1x">Developer &amp; Designer</small></a></h3>
+        <div>略懂，略懂。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/04/17/zitie/" title="字帖"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Staray" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://github.com/Staray" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 听雨煎茶
+        
+        <div class="publishby">
+        	<!-- 津ICP备17007447号-1 -->
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '1dG8P0BNFtZm1yrOYfZgo6g4-gzGzoHsz',
+    appKey: '0UBGiwNcccLHEeCQND22RXzb',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
