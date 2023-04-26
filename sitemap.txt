@@ -1,3 +1,4 @@
+https://staray.github.io/2023/04/26/Qt-Creator-encoding-format/
 https://staray.github.io/2023/04/19/Github-API/
 https://staray.github.io/2023/04/17/zitie/
 https://staray.github.io/books/index.html
@@ -13,4 +14,9 @@ https://staray.github.io/tags/%E5%AD%97%E5%B8%96/
 https://staray.github.io/tags/Github/
 https://staray.github.io/tags/API/
 https://staray.github.io/tags/Android/
+https://staray.github.io/tags/Qt-Creator/
+https://staray.github.io/tags/Encoding/
+https://staray.github.io/tags/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/
+https://staray.github.io/tags/Win10/
 https://staray.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/
+https://staray.github.io/categories/QT/
