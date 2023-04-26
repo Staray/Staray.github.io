@@ -6,10 +6,39 @@
   <link href="https://staray.github.io/atom.xml" rel="self"/>
   
   <link href="https://staray.github.io/"/>
-  <updated>2023-04-26T02:22:49.972Z</updated>
+  <updated>2023-04-26T08:28:35.679Z</updated>
   <id>https://staray.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>七牛图床使用教程阿里个人域名配置</title>
+    <link href="https://staray.github.io/2023/04/26/qiniu/"/>
+    <id>https://staray.github.io/2023/04/26/qiniu/</id>
+    <published>2023-04-26T08:04:37.000Z</published>
+    <updated>2023-04-26T08:28:35.679Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本教程是使用七牛作为图床，并搭配个人域名来进行外链生成，还包含免费SSL个人证书申请和配置过程。</p><p>如果没有个人域名，就不需要再继续阅读了，因为七牛图床如果没有个人域名，只能使用一个月的临时外链域名。</p><p>个人域名申请和备案，请移步<a href="https://beian.aliyun.com/">阿里备案</a>，进行操作。</p><p>准备：</p><ul><li>七牛账户</li><li>阿里个人已备案域名</li></ul><h1 id="一、-七牛空间创建"><a href="#一、-七牛空间创建" class="headerlink" title="一、 七牛空间创建"></a>一、 七牛空间创建</h1><p>进入七牛对象存储-空间管理页面<a href="https://portal.qiniu.com/kodo/bucket">https://portal.qiniu.com/kodo/bucket</a>。</p><p>点击<code>新建空间</code>，输入空间名称，选择一个存储区域，<strong>访问控制选择公开</strong>，然后确定。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140021.png" alt="image"></p><p>创建成功后，就会看到提示，临时域名只有一个月的使用时间。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140101.png" alt="image"></p><p>点击刚申请的空间，进入空间概览页面，进入文件管理页面，就能看到外链临时域名。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141823.png" alt="image"></p><p>回到空间概览的标签页，点击<code>自定义域名</code>按钮，进入添加域名的页面</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141937.png" alt="image"></p><p>使用自己已经申请的阿里云域名，想一个二级域名，随便输入一个，比如我输入这个<code>staray-pic.staray.top</code>。我的个人域名是<code>staray.top</code>，二级域名就随便想一个，没有重复的即可，后面我们需要去阿里云控制台来新增这个二级域名。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426143924.png" alt="image"></p><blockquote><p>注意，我们这个时候选择了通信协议是<code>HTTP</code>，因为我们现在还没有证书，需要一会去阿里云控制台来申请证书，然后再回来修改这个地方，最后点击下方的创建按钮。</p></blockquote><blockquote><p>如果不配置SSL证书，在许多浏览器中都无法正常的访问图片</p></blockquote><p>接着会进入创建完成页面，这里，有个很重要的值CNAME，这个值要记录下来，需要去阿里云域名解析里面配置。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145210.png" alt="image"></p><h1 id="二、-阿里云个人域名配置和证书申请"><a href="#二、-阿里云个人域名配置和证书申请" class="headerlink" title="二、 阿里云个人域名配置和证书申请"></a>二、 阿里云个人域名配置和证书申请</h1><h2 id="1-1-域名管理"><a href="#1-1-域名管理" class="headerlink" title="1.1 域名管理"></a>1.1 域名管理</h2><p>进入阿里云控制台： <a href="https://home.console.aliyun.com/home/dashboard/ProductAndService">https://home.console.aliyun.com/home/dashboard/ProductAndService</a>，通过左上角的菜单按钮，选择<code>域名</code>，进入域名管理页面</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142426.png" alt="image"></p><p>从左侧列表选择<code>域名列表</code>，可以查看到自己的个人域名，然后，点击域名右侧的<code>解析</code>按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142758.png" alt="image"></p><p>进入了域名解析页面，在解析设置页面，点击<code>添加记录</code>按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426144909.png" alt="image"></p><p>在添加记录页面，有3个地方需要更改：</p><ul><li>记录类型，选择为CNAME</li><li>主机记录更改为在七牛云填写的二级域名</li><li>记录值就是刚才在七牛云创建完成的CNAME值</li></ul><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145746.png" alt="image"></p><p>完成后，点击确认按钮。</p><p>然后就能在列表中看到刚刚设置好的二级域名。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150058.png" alt="image"></p><h2 id="1-2-证书配置"><a href="#1-2-证书配置" class="headerlink" title="1.2 证书配置"></a>1.2 证书配置</h2><p>回到阿里云控制台，通过左上角菜单，在搜索中输入SSL，查询到SSL证书（应用安全），点击进入。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150325.png" alt="image"></p><p>进入后，点击左侧的SSL证书菜单，选择免费证书，然后点击立即购买。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150643.png" alt="image"></p><p>根据个人需求，选择购买证书的数量，然后点击立即购买（这个是免费的）。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150819.png" alt="image"></p><p>购买完成后，回到免费证书页面，点击创建证书按钮，列表中就会出现一个代申请的证书，点击右侧的证书申请按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151020.png" alt="image"></p><p>在证书申请页面，填写刚刚创建的二级域名<code>staray-pic.staray.top</code>，然后点击提交审核按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151229.png" alt="image"></p><p>然后等待CA发证，这个时间很快，一般几分钟就稿定。</p><p>发证后，刷新页面，就能看到列表的证书已经下发完成，接着我们需要把证书上传到七牛，点击证书右侧的下载按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151737.png" alt="image"></p><p>在证书下载页面，选择其他一项，点击下载。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151926.png" alt="image"></p><p>证书下载完成后，是个zip压缩包，打开压缩包，里面包含了两个文件，一个pem和一个key文件，这些就是证书的公私钥对和信息文件。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152122.png" alt="image"></p><p>解压出来，用<strong>文本编辑器软件比如记事本</strong>打开这两个文件，下面进入七牛去配置证书。</p><h1 id="七牛证书配置"><a href="#七牛证书配置" class="headerlink" title="七牛证书配置"></a>七牛证书配置</h1><p>回到七牛域名管理页面 <a href="https://portal.qiniu.com/cdn/domain">https://portal.qiniu.com/cdn/domain</a></p><p>在域名列表里面找到二级域名，点击右侧的配置按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152553.png" alt="image"></p><p>下拉页面，找到HTTPS配置部分，点击右侧的修改配置按钮。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152727.png" alt="image"></p><p>在HTTPS配置页面，先点击开启按钮，然后输入证书备注名（随便想一个)，然后，分别把刚刚申请的证书的pem内容和key内容分别粘贴到下面的两个框中。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152920.png" alt="image"></p><p>然后点击确定上传。</p><blockquote><p>注意，复制证书的时候，不要把最后一个空行复制上，只复制到内容的最后一个字符，如果复制了空行，上传时，七牛会提示证书格式问题，七牛会自动修复，这时选择七牛的那个版本，再上传即可。</p></blockquote><p>上传完成后，点击右下角确定按钮。</p><p>等待七牛配置，这个过程也很快，几分钟即可。</p><p>升级成功！</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426153750.png" alt="image"></p><h1 id="图床测试"><a href="#图床测试" class="headerlink" title="图床测试"></a>图床测试</h1><p>回到空间管理 <a href="https://portal.qiniu.com/kodo/bucket">https://portal.qiniu.com/kodo/bucket</a>，进入第一步建立好的空间，然后选择文件管理，选择上传文件，提交一张本地照片。</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154119.png" alt="image"></p><p>上传完成后，刷新一下，能在列表中看到这个图片，选择更多-复制外链</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154206.png" alt="image"></p><p>直接在浏览器中打开，就能看到图片了，并且SSL链接也是正常的</p><p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154446.png" alt="image"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本教程是使用七牛作为图床，并搭配个人域名来进行外链生成，还包含免费SSL个人证书申请和配置过程。&lt;/p&gt;
+&lt;p&gt;如果没有个人域名，就不需要再</summary>
+      
+    
+    
+    
+    
+    <category term="七牛" scheme="https://staray.github.io/tags/%E4%B8%83%E7%89%9B/"/>
+    
+    <category term="图床" scheme="https://staray.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+    <category term="个人域名" scheme="https://staray.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D/"/>
+    
+    <category term="阿里云" scheme="https://staray.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Qt Creator 编译窗口中文乱码</title>

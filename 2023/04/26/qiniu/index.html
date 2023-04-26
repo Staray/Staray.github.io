@@ -17,32 +17,50 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Qt Creator 编译窗口中文乱码 | STARAY个人小站</title>
-  <meta name="description" content="前言主要解决的是编译输出窗口、应用输出窗口的中文乱码问题，我使用的系统是英文系统，安装了中文语言包，因为系统自身属性，导致很多软件都无法正常显示中文，目标是：改成中文系统，并且让Qt所有显示中文的地方都能正常显示，不乱码。 一、 系统设置 系统：Windows10  在进行系统设置更改时，会提示需要重启，不需要每设置一次就重启一次，把全部设置都设置完成，再重启一次即可。 1.1 设置打开开始-设置">
+  <title>七牛图床使用教程阿里个人域名配置 | STARAY个人小站</title>
+  <meta name="description" content="前言本教程是使用七牛作为图床，并搭配个人域名来进行外链生成，还包含免费SSL个人证书申请和配置过程。 如果没有个人域名，就不需要再继续阅读了，因为七牛图床如果没有个人域名，只能使用一个月的临时外链域名。 个人域名申请和备案，请移步阿里备案，进行操作。 准备：  七牛账户 阿里个人已备案域名  一、 七牛空间创建进入七牛对象存储-空间管理页面https:&#x2F;&#x2F;portal.qiniu.com&#x2F;kodo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qt Creator 编译窗口中文乱码">
-<meta property="og:url" content="https://staray.github.io/2023/04/26/Qt-Creator-encoding-format/index.html">
+<meta property="og:title" content="七牛图床使用教程阿里个人域名配置">
+<meta property="og:url" content="https://staray.github.io/2023/04/26/qiniu/index.html">
 <meta property="og:site_name" content="听雨煎茶">
-<meta property="og:description" content="前言主要解决的是编译输出窗口、应用输出窗口的中文乱码问题，我使用的系统是英文系统，安装了中文语言包，因为系统自身属性，导致很多软件都无法正常显示中文，目标是：改成中文系统，并且让Qt所有显示中文的地方都能正常显示，不乱码。 一、 系统设置 系统：Windows10  在进行系统设置更改时，会提示需要重启，不需要每设置一次就重启一次，把全部设置都设置完成，再重启一次即可。 1.1 设置打开开始-设置">
+<meta property="og:description" content="前言本教程是使用七牛作为图床，并搭配个人域名来进行外链生成，还包含免费SSL个人证书申请和配置过程。 如果没有个人域名，就不需要再继续阅读了，因为七牛图床如果没有个人域名，只能使用一个月的临时外链域名。 个人域名申请和备案，请移步阿里备案，进行操作。 准备：  七牛账户 阿里个人已备案域名  一、 七牛空间创建进入七牛对象存储-空间管理页面https:&#x2F;&#x2F;portal.qiniu.com&#x2F;kodo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426092502.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426092811.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093229.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093240.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093535.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426094718.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426095537.png">
-<meta property="og:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426095558.png">
-<meta property="article:published_time" content="2023-04-26T02:12:03.000Z">
-<meta property="article:modified_time" content="2023-04-26T02:22:49.972Z">
-<meta property="article:tag" content="Qt Creator">
-<meta property="article:tag" content="Encoding">
-<meta property="article:tag" content="中文乱码">
-<meta property="article:tag" content="Win10">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140021.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140101.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141823.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141937.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426143924.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145210.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142426.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142758.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426144909.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145746.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150058.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150325.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150643.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150819.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151020.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151229.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151737.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151926.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152122.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152553.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152727.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152920.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426153750.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154119.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154206.png">
+<meta property="og:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154446.png">
+<meta property="article:published_time" content="2023-04-26T08:04:37.000Z">
+<meta property="article:modified_time" content="2023-04-26T08:28:35.679Z">
+<meta property="article:tag" content="七牛">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="个人域名">
+<meta property="article:tag" content="阿里云">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426092502.png">
+<meta name="twitter:image" content="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140021.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://staray.github.io/2023/04/26/Qt-Creator-encoding-format/index.html">
+  <link rel="canonical" href="https://staray.github.io/2023/04/26/qiniu/index.html">
   
     <link rel="alternate" href="/atom.xml" title="听雨煎茶" type="application/atom+xml">
   
@@ -357,25 +375,16 @@
 
   
   
-  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    <nav id="toc" class="article-toc">
-      <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">一、 系统设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 控制面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%B3%A8%E5%86%8C%E8%A1%A8"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 注册表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-QT-Creator-%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">二、 QT Creator 设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 文本编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%9B%B4%E6%94%B9jom%E5%92%8Cutf-8%E8%BE%93%E5%87%BA"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 更改jom和utf-8输出</span></a></li></ol></li></ol>
-    </nav>
-  </div>
-</aside>
-
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Qt-Creator-encoding-format" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-qiniu" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Qt Creator 编译窗口中文乱码
+      七牛图床使用教程阿里个人域名配置
     </h1>
   
 
@@ -383,20 +392,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/04/26/Qt-Creator-encoding-format/" class="article-date">
-	  <time datetime="2023-04-26T02:12:03.000Z" itemprop="datePublished">2023-04-26</time>
+	<a href="/2023/04/26/qiniu/" class="article-date">
+	  <time datetime="2023-04-26T08:04:37.000Z" itemprop="datePublished">2023-04-26</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/QT/">QT</a>
-  </span>
-
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Encoding/" rel="tag">Encoding</a>, <a class="article-tag-link-link" href="/tags/Qt-Creator/" rel="tag">Qt Creator</a>, <a class="article-tag-link-link" href="/tags/Win10/" rel="tag">Win10</a>, <a class="article-tag-link-link" href="/tags/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" rel="tag">中文乱码</a>
+	<a class="article-tag-link-link" href="/tags/%E4%B8%83%E7%89%9B/" rel="tag">七牛</a>, <a class="article-tag-link-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D/" rel="tag">个人域名</a>, <a class="article-tag-link-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a>, <a class="article-tag-link-link" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag">阿里云</a>
   </span>
 
 
@@ -404,82 +408,107 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2023/04/26/Qt-Creator-encoding-format/" class="leancloud_visitors"  data-flag-title="Qt Creator 编译窗口中文乱码">
+    	<span id="/2023/04/26/qiniu/" class="leancloud_visitors"  data-flag-title="七牛图床使用教程阿里个人域名配置">
 			<span class="leancloud-visitors-count">0</span>
 		</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/04/26/Qt-Creator-encoding-format/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/04/26/qiniu/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 802(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主要解决的是编译输出窗口、应用输出窗口的中文乱码问题，我使用的系统是英文系统，安装了中文语言包，因为系统自身属性，导致很多软件都无法正常显示中文，目标是：改成中文系统，并且让Qt所有显示中文的地方都能正常显示，不乱码。</p>
-<h1 id="一、-系统设置"><a href="#一、-系统设置" class="headerlink" title="一、 系统设置"></a>一、 系统设置</h1><blockquote>
-<p>系统：Windows10</p>
-</blockquote>
-<p><strong>在进行系统设置更改时，会提示需要重启，不需要每设置一次就重启一次，把全部设置都设置完成，再重启一次即可。</strong></p>
-<h2 id="1-1-设置"><a href="#1-1-设置" class="headerlink" title="1.1 设置"></a>1.1 设置</h2><p>打开<code>开始-设置-时间和语言-区域</code>在<code>国家和地区</code>里面选择<code>中国</code>，<code>区域格式</code>选择<code>中文(简体，中国)</code></p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426092502.png" alt="image"></p>
-<h2 id="1-2-控制面板"><a href="#1-2-控制面板" class="headerlink" title="1.2 控制面板"></a>1.2 控制面板</h2><p>打开<code>控制面板-时钟和区域-区域</code>，在弹出的区域对话框中，格式修改为<code>中文(简体，中国)</code></p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426092811.png" alt="image"></p>
-<p>接着切换到<code>管理</code>标签页，在<code>非Unicode程序的语言</code>区域点击<code>更改系统区域设置</code>按钮</p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093229.png" alt="image"></p>
-<blockquote>
-<p>注：在此页上面的欢迎屏幕和新用户账户的复制设置按钮，可以更改登录页面显示的语言。</p>
-</blockquote>
-<p>在弹出的<code>区域设置</code>对话框中，更改<code>当前系统区域设置</code>为<code>中文(简体，中国)</code></p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093240.png" alt="image"></p>
-<h2 id="1-3-注册表"><a href="#1-3-注册表" class="headerlink" title="1.3 注册表"></a>1.3 注册表</h2><p>使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Win+R</span><br></pre></td></tr></table></figure>
-
-<p>打开运行窗口，输入<code>regedit</code>，打开注册表，按照如下路径打开：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\Language</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426093535.png" alt="image"></p>
-<p>将<code>Default</code>和<code>InstallLanguage</code>的值都修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0804</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注：0409 值代表英文</p>
-</blockquote>
-<hr>
-<p>至此，系统设置完成，</p>
-<p><strong>重启电脑!</strong></p>
-<p><strong>重启电脑!</strong></p>
-<p><strong>重启电脑!</strong></p>
-<p>重要的事情说三遍，一定要重启电脑。</p>
-<h1 id="二、-QT-Creator-设置"><a href="#二、-QT-Creator-设置" class="headerlink" title="二、 QT Creator 设置"></a>二、 QT Creator 设置</h1><h2 id="2-1-文本编辑器"><a href="#2-1-文本编辑器" class="headerlink" title="2.1 文本编辑器"></a>2.1 文本编辑器</h2><p>低版本的Qt Creator打开：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工具-选项</span><br></pre></td></tr></table></figure>
-<p>高版本的打开：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编辑-Preferences</span><br></pre></td></tr></table></figure>
-
-<p>弹出的选项对话框，选择<code>文本编辑器</code>，</p>
-<p><strong>选择一个支持中文的语言</strong></p>
-<p>如果没有安装中文字体包，那么下载并安装一个支持中文的字体，重启Qt Creator再次选择。</p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426094718.png" alt="image"></p>
-<p>这个设置完成后，可以先尝试编译一个小程序，观察中文是否显示正常，包括<code>编译输出</code>窗口和<code>应用输出</code>窗口的所有中文，是否显示正常，如果不可以，继续向下看。</p>
-<h2 id="2-2-更改jom和utf-8输出"><a href="#2-2-更改jom和utf-8输出" class="headerlink" title="2.2 更改jom和utf-8输出"></a>2.2 更改jom和utf-8输出</h2><p>在这篇文章<a target="_blank" rel="noopener" href="https://blog.csdn.net/fxfeixue/article/details/108790539">https://blog.csdn.net/fxfeixue/article/details/108790539</a>中，说需要以下两个配置需要勾选其中一个，但是我的情况测试是必须两个都勾选我这窗口才能显示正常，所以，根据自身的实际情况，全都试下，总共就4中情况：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本教程是使用七牛作为图床，并搭配个人域名来进行外链生成，还包含免费SSL个人证书申请和配置过程。</p>
+<p>如果没有个人域名，就不需要再继续阅读了，因为七牛图床如果没有个人域名，只能使用一个月的临时外链域名。</p>
+<p>个人域名申请和备案，请移步<a target="_blank" rel="noopener" href="https://beian.aliyun.com/">阿里备案</a>，进行操作。</p>
+<p>准备：</p>
 <ul>
-<li>都勾选</li>
-<li>都不勾选</li>
-<li>只勾选一个</li>
+<li>七牛账户</li>
+<li>阿里个人已备案域名</li>
 </ul>
-<p>在<code>构建和运行</code>页面中有个<code>使用jom代替nmake</code></p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426095537.png" alt="image"></p>
-<p>在<code>Kits</code>页面，选中当前使用的编译环境，在下方有个<code>Force UTF-8 MSVC compiler output</code></p>
-<p><img src="https://pic.staray.top/Qt-zh-code-style/QQ%E6%88%AA%E5%9B%BE20230426095558.png" alt="image"></p>
-<p>在把前面的情况都试验以下，看看哪个能具体生效，每次更改，最好都重新启动一次Qt Creator，并且把编译输出的文件夹整个删掉，重新构建。</p>
-<hr>
-<center><font color="#00BFFF">宠辱不惊，看庭前花开花落；去留无意，望天空云卷云舒</font></center>
+<h1 id="一、-七牛空间创建"><a href="#一、-七牛空间创建" class="headerlink" title="一、 七牛空间创建"></a>一、 七牛空间创建</h1><p>进入七牛对象存储-空间管理页面<a target="_blank" rel="noopener" href="https://portal.qiniu.com/kodo/bucket">https://portal.qiniu.com/kodo/bucket</a>。</p>
+<p>点击<code>新建空间</code>，输入空间名称，选择一个存储区域，<strong>访问控制选择公开</strong>，然后确定。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140021.png" alt="image"></p>
+<p>创建成功后，就会看到提示，临时域名只有一个月的使用时间。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426140101.png" alt="image"></p>
+<p>点击刚申请的空间，进入空间概览页面，进入文件管理页面，就能看到外链临时域名。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141823.png" alt="image"></p>
+<p>回到空间概览的标签页，点击<code>自定义域名</code>按钮，进入添加域名的页面</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426141937.png" alt="image"></p>
+<p>使用自己已经申请的阿里云域名，想一个二级域名，随便输入一个，比如我输入这个<code>staray-pic.staray.top</code>。我的个人域名是<code>staray.top</code>，二级域名就随便想一个，没有重复的即可，后面我们需要去阿里云控制台来新增这个二级域名。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426143924.png" alt="image"></p>
+<blockquote>
+<p>注意，我们这个时候选择了通信协议是<code>HTTP</code>，因为我们现在还没有证书，需要一会去阿里云控制台来申请证书，然后再回来修改这个地方，最后点击下方的创建按钮。</p>
+</blockquote>
+<blockquote>
+<p>如果不配置SSL证书，在许多浏览器中都无法正常的访问图片</p>
+</blockquote>
+<p>接着会进入创建完成页面，这里，有个很重要的值CNAME，这个值要记录下来，需要去阿里云域名解析里面配置。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145210.png" alt="image"></p>
+<h1 id="二、-阿里云个人域名配置和证书申请"><a href="#二、-阿里云个人域名配置和证书申请" class="headerlink" title="二、 阿里云个人域名配置和证书申请"></a>二、 阿里云个人域名配置和证书申请</h1><h2 id="1-1-域名管理"><a href="#1-1-域名管理" class="headerlink" title="1.1 域名管理"></a>1.1 域名管理</h2><p>进入阿里云控制台： <a target="_blank" rel="noopener" href="https://home.console.aliyun.com/home/dashboard/ProductAndService">https://home.console.aliyun.com/home/dashboard/ProductAndService</a>，通过左上角的菜单按钮，选择<code>域名</code>，进入域名管理页面</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142426.png" alt="image"></p>
+<p>从左侧列表选择<code>域名列表</code>，可以查看到自己的个人域名，然后，点击域名右侧的<code>解析</code>按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426142758.png" alt="image"></p>
+<p>进入了域名解析页面，在解析设置页面，点击<code>添加记录</code>按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426144909.png" alt="image"></p>
+<p>在添加记录页面，有3个地方需要更改：</p>
+<ul>
+<li>记录类型，选择为CNAME</li>
+<li>主机记录更改为在七牛云填写的二级域名</li>
+<li>记录值就是刚才在七牛云创建完成的CNAME值</li>
+</ul>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426145746.png" alt="image"></p>
+<p>完成后，点击确认按钮。</p>
+<p>然后就能在列表中看到刚刚设置好的二级域名。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150058.png" alt="image"></p>
+<h2 id="1-2-证书配置"><a href="#1-2-证书配置" class="headerlink" title="1.2 证书配置"></a>1.2 证书配置</h2><p>回到阿里云控制台，通过左上角菜单，在搜索中输入SSL，查询到SSL证书（应用安全），点击进入。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150325.png" alt="image"></p>
+<p>进入后，点击左侧的SSL证书菜单，选择免费证书，然后点击立即购买。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150643.png" alt="image"></p>
+<p>根据个人需求，选择购买证书的数量，然后点击立即购买（这个是免费的）。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426150819.png" alt="image"></p>
+<p>购买完成后，回到免费证书页面，点击创建证书按钮，列表中就会出现一个代申请的证书，点击右侧的证书申请按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151020.png" alt="image"></p>
+<p>在证书申请页面，填写刚刚创建的二级域名<code>staray-pic.staray.top</code>，然后点击提交审核按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151229.png" alt="image"></p>
+<p>然后等待CA发证，这个时间很快，一般几分钟就稿定。</p>
+<p>发证后，刷新页面，就能看到列表的证书已经下发完成，接着我们需要把证书上传到七牛，点击证书右侧的下载按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151737.png" alt="image"></p>
+<p>在证书下载页面，选择其他一项，点击下载。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426151926.png" alt="image"></p>
+<p>证书下载完成后，是个zip压缩包，打开压缩包，里面包含了两个文件，一个pem和一个key文件，这些就是证书的公私钥对和信息文件。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152122.png" alt="image"></p>
+<p>解压出来，用<strong>文本编辑器软件比如记事本</strong>打开这两个文件，下面进入七牛去配置证书。</p>
+<h1 id="七牛证书配置"><a href="#七牛证书配置" class="headerlink" title="七牛证书配置"></a>七牛证书配置</h1><p>回到七牛域名管理页面 <a target="_blank" rel="noopener" href="https://portal.qiniu.com/cdn/domain">https://portal.qiniu.com/cdn/domain</a></p>
+<p>在域名列表里面找到二级域名，点击右侧的配置按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152553.png" alt="image"></p>
+<p>下拉页面，找到HTTPS配置部分，点击右侧的修改配置按钮。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152727.png" alt="image"></p>
+<p>在HTTPS配置页面，先点击开启按钮，然后输入证书备注名（随便想一个)，然后，分别把刚刚申请的证书的pem内容和key内容分别粘贴到下面的两个框中。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426152920.png" alt="image"></p>
+<p>然后点击确定上传。</p>
+<blockquote>
+<p>注意，复制证书的时候，不要把最后一个空行复制上，只复制到内容的最后一个字符，如果复制了空行，上传时，七牛会提示证书格式问题，七牛会自动修复，这时选择七牛的那个版本，再上传即可。</p>
+</blockquote>
+<p>上传完成后，点击右下角确定按钮。</p>
+<p>等待七牛配置，这个过程也很快，几分钟即可。</p>
+<p>升级成功！</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426153750.png" alt="image"></p>
+<h1 id="图床测试"><a href="#图床测试" class="headerlink" title="图床测试"></a>图床测试</h1><p>回到空间管理 <a target="_blank" rel="noopener" href="https://portal.qiniu.com/kodo/bucket">https://portal.qiniu.com/kodo/bucket</a>，进入第一步建立好的空间，然后选择文件管理，选择上传文件，提交一张本地照片。</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154119.png" alt="image"></p>
+<p>上传完成后，刷新一下，能在列表中看到这个图片，选择更多-复制外链</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154206.png" alt="image"></p>
+<p>直接在浏览器中打开，就能看到图片了，并且SSL链接也是正常的</p>
+<p><img src="https://pic.staray.top/qiniu/QQ%E6%88%AA%E5%9B%BE20230426154446.png" alt="image"></p>
+
       
     </div>
     <div class="article-footer">
@@ -488,7 +517,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://staray.github.io/2023/04/26/Qt-Creator-encoding-format/" title="Qt Creator 编译窗口中文乱码" target="_blank" rel="external">https://staray.github.io/2023/04/26/Qt-Creator-encoding-format/</a>
+      <a href="https://staray.github.io/2023/04/26/qiniu/" title="七牛图床使用教程阿里个人域名配置" target="_blank" rel="external">https://staray.github.io/2023/04/26/qiniu/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -534,23 +563,11 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/04/26/qiniu/" title="七牛图床使用教程阿里个人域名配置"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2023/04/19/Github-API/" title="Github API"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/04/26/Qt-Creator-encoding-format/" title="Qt Creator 编译窗口中文乱码"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
-    
-    <li class="toggle-toc">
-      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
-        <i class="text-collapsed icon icon-anchor"></i>
-        <i class="text-in icon icon-close"></i>
-        <span>]</span>
-      </a>
-    </li>
     
   </ul>
   
